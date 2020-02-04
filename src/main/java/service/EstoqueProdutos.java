@@ -1,5 +1,8 @@
 package service;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import dao.ProdutoDao;
@@ -10,8 +13,10 @@ public class EstoqueProdutos {
 	
 	public void lista(Dados dados) {
 		this.produtoDAO = dados.getProdutoDao();
-		List<Produto> produtos = produtoDAO.getProdutos();
-		produtos.sort();
+		List<Produto> produtos = new ArrayList<>();
+		produtos.addAll(produtoDAO.getProdutos());
+		
+		Collections.sort(produtos, Comparator.comparing(Produto::getDescricao));
 		produtos.forEach(produto -> {
 		    System.out.println(produto.getDescricao() + "\t\t\t " + produto.getQuantidade());
 		});

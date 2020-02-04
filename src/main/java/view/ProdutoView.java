@@ -16,7 +16,6 @@ public class ProdutoView {
 	private Produto produto;
 	private EstoqueProdutos estoqueProdutos= new EstoqueProdutos();
 
-
 	public Produto leituraProduto() throws JsonGenerationException, JsonMappingException, IOException{
 		produto = new Produto();
 		System.out.print("Código do Produto: ");

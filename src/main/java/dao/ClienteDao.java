@@ -2,8 +2,8 @@ package dao;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -15,7 +15,7 @@ import model.Cliente;
 public class ClienteDao {
 	private String nomeArquivo = "clientes.xml";
 	private File arquivo = new File(nomeArquivo);
-	private Set<Cliente>clientes = new LinkedHashSet<>();
+	private List<Cliente>clientes = new ArrayList<>();
 	private XML xml = new XML();
 	
 	public void adiciona(Cliente cliente) throws JsonGenerationException, JsonMappingException, IOException {
@@ -24,13 +24,13 @@ public class ClienteDao {
 	}
 	
 	public void carrega() {
-		TypeReference<Set<Cliente>> typeReference = new TypeReference<Set<Cliente>>() {};
-		Set<Cliente> lista = null;
-		Set<Cliente> carrega = (Set<Cliente>) xml.carrega(arquivo, typeReference, lista);
+		TypeReference<List<Cliente>> typeReference = new TypeReference<List<Cliente>>() {};
+		List<Cliente> lista = null;
+		List<Cliente> carrega = (List<Cliente>) xml.carrega(arquivo, typeReference, lista);
 		clientes.addAll(carrega);
 	}
 	
-	public Set<Cliente> getClientes(){
+	public List<Cliente> getClientes(){
 		return this.clientes;
 	}
 

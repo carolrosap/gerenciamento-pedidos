@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonParseException;
@@ -19,11 +18,11 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 public class XML {
 	private static final XmlMapper xmlMapper = new XmlMapper();
 	
-	public void escreveLista(Set<?> lista, File arquivo, String filename) throws JsonGenerationException, JsonMappingException, IOException {
+	public void escreveLista(List<?> lista, File arquivo, String filename) throws JsonGenerationException, JsonMappingException, IOException {
 		xmlMapper.writeValue(arquivo, lista);
 	}
 	
-	public Set<?> carrega(File arquivo, TypeReference typeReference, Set<?> lista) {
+	public List<?> carrega(File arquivo, TypeReference typeReference, List<?> lista) {
 		InputStream inputStream = null;
 		try {
 			inputStream = new FileInputStream(arquivo);
@@ -34,7 +33,7 @@ public class XML {
 		//TypeReference<List<Produto>> typeReference = new TypeReference<List<Produto>>() {};
 		//List<Produto> lista = null;
 		try {
-			lista = (Set<?>) xmlMapper.readValue(inputStream, typeReference);
+			lista = (List<?>) xmlMapper.readValue(inputStream, typeReference);
 		} catch (JsonParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -55,6 +54,6 @@ public class XML {
 			System.out.println("Lista vazia, inserir dados antes");
 			return null;
 		}
-		return Collections.unmodifiableSet(lista);
+		return Collections.unmodifiableList(lista);
 	}
 }

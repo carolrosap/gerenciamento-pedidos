@@ -1,8 +1,6 @@
 package service;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.List;
 
 import dao.ProdutoDao;
 import model.Produto;
@@ -12,7 +10,8 @@ public class EstoqueProdutos {
 	
 	public void lista(Dados dados) {
 		this.produtoDAO = dados.getProdutoDao();
-		Set<Produto> produtos = produtoDAO.getProdutos();
+		List<Produto> produtos = produtoDAO.getProdutos();
+		produtos.sort();
 		produtos.forEach(produto -> {
 		    System.out.println(produto.getDescricao() + "\t\t\t " + produto.getQuantidade());
 		});

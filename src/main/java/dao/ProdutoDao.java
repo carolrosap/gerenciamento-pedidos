@@ -2,8 +2,8 @@ package dao;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -16,7 +16,7 @@ public class ProdutoDao {
 	
 	private String nomeArquivo = "produtos.xml";
 	private File arquivo = new File(nomeArquivo);
-	private Set<Produto> produtos = new LinkedHashSet<>();
+	private List<Produto> produtos = new ArrayList<>();
 	private XML xml = new XML();
 	
 	public void adiciona(Produto produto) throws JsonGenerationException, JsonMappingException, IOException {
@@ -25,13 +25,13 @@ public class ProdutoDao {
 	}
 	
 	public void carrega() {
-		TypeReference<Set<Produto>> typeReference = new TypeReference<Set<Produto>>() {};
-		Set<Produto> lista = null;
-		Set<Produto> carrega = (Set<Produto>) xml.carrega(arquivo, typeReference, lista);
+		TypeReference<List<Produto>> typeReference = new TypeReference<List<Produto>>() {};
+		List<Produto> lista = null;
+		List<Produto> carrega = (List<Produto>) xml.carrega(arquivo, typeReference, lista);
 		produtos.addAll(carrega);
 	}
 	
-	public Set<Produto> getProdutos(){
+	public List<Produto> getProdutos(){
 		return this.produtos;
 	}
 

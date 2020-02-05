@@ -34,7 +34,7 @@ public class CadastraPedido {
 			if(cliente.getCodigoCliente() == codigo)
 				clientePedido = cliente;
 		}
-		System.out.println(clientePedido);
+		//System.out.println(clientePedido);
 		//fazer tratamento
 		return clientePedido;
 		// TODO Auto-generated method stub
@@ -51,7 +51,7 @@ public class CadastraPedido {
 		});
 		System.out.print("Código do produto: ");
 		codigo = sc.nextInt();
-		System.out.println(codigo);
+		//System.out.println(codigo);
 		Produto produtoPedido = null;
 		
 		for (Produto produto : produtos) {

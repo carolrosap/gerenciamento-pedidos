@@ -1,3 +1,4 @@
+package test;
 import java.io.IOException;
 
 import service.CadastraCliente;
@@ -19,9 +20,6 @@ public class App {
 		
 		menu.closeScanner();
 		
-		
-		
 	}
-	
-	
+		
 }

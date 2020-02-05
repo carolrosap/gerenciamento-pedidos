@@ -28,8 +28,8 @@ public class Menu {
 		System.out.println("3 - Cadastrar produto");
 		System.out.println("4 - Cadastrar Cliente");
 		System.out.println("5 - Sair");
-		System.out.println("6 - Listar Produtos");
-		System.out.println("7 - Listar Clientes");
+		//System.out.println("6 - Listar Produtos");
+		//System.out.println("7 - Listar Clientes");
 		System.out.print("Digite aqui a sua opção: ");
 	}
 	public void init() {

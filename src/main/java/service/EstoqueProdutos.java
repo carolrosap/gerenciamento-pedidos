@@ -23,5 +23,9 @@ public class EstoqueProdutos {
 
 		//return produtoDAO.getProdutos();
 	}
+	
+	public void verificaEstoque() {
+		
+	}
 
 }

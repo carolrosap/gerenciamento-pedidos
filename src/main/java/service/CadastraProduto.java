@@ -11,7 +11,7 @@ import model.Produto;
 public class CadastraProduto {
 	private ProdutoDao produtoDAO;
 	
-	public void executa(Produto produto, Dados dados) {
+	public Dados executa(Produto produto, Dados dados) {
 		this.produtoDAO = dados.getProdutoDao();
 		//adiciona produto ao dao
 		//dao adiona na lista
@@ -21,5 +21,7 @@ public class CadastraProduto {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		dados.setProdutoDao(produtoDAO);
+		return dados;
 	}
 }

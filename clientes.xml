@@ -1,1 +1,1 @@
-<LinkedHashSet><item><nome>jjjj</nome><cpf>98556</cpf></item><item><nome>oi</nome><cpf>8559</cpf></item></LinkedHashSet>
+<ArrayList><item><nome>jjjj</nome><cpf>98556</cpf><codigoCliente/></item><item><nome>oi</nome><cpf>8559</cpf><codigoCliente/></item><item><nome>Carol</nome><cpf>9668</cpf><codigoCliente>123</codigoCliente></item><item><nome>Teste</nome><cpf>996</cpf><codigoCliente>855</codigoCliente></item><item><nome>caroline</nome><cpf>7885</cpf><codigoCliente>10</codigoCliente></item></ArrayList>

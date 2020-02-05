@@ -1,23 +1,21 @@
 package view;
 import java.io.IOException;
 import java.util.Scanner;
-import java.util.Set;
 
 import model.Cliente;
 import model.Produto;
 import service.CadastraCliente;
 import service.CadastraProduto;
 import service.Dados;
-import service.EstoqueProdutos;
 
 public class Menu {
 	private Integer opcao;
-	private static ClienteView clienteView;
+	private static ClienteView clienteView = new ClienteView();
 	private static ProdutoView produtoView = new ProdutoView();
+	private static PedidoView pedidoView = new PedidoView();
 	private static Dados dados = new Dados();
 	private static CadastraProduto cadastraProduto = new CadastraProduto();
 	private static CadastraCliente cadastraCliente = new CadastraCliente();
-	private static EstoqueProdutos estoqueProdutos = new EstoqueProdutos();
 	private static Scanner sc = new Scanner(System.in);
 	private Produto produto;
 	private Cliente cliente;
@@ -30,6 +28,8 @@ public class Menu {
 		System.out.println("3 - Cadastrar produto");
 		System.out.println("4 - Cadastrar Cliente");
 		System.out.println("5 - Sair");
+		System.out.println("6 - Listar Produtos");
+		System.out.println("7 - Listar Clientes");
 		System.out.print("Digite aqui a sua opção: ");
 	}
 	public void init() {
@@ -49,7 +49,6 @@ public class Menu {
 		case 1:
 			//verificarEstoque
 			//listagem
-			//estoqueProdutos.lista(dados);
 			produtoView.estoque(dados);
 			break;
 		case 2:
@@ -57,19 +56,18 @@ public class Menu {
 			//produto
 			//cliente
 			//quantidade
+			pedidoView.telaCadastro(dados);
 			break;
 		case 3:
 			//cadastrar produto;
-			//produtoView = new ProdutoView();
 			produto = produtoView.leituraProduto();
-			//executa o cadastro dos produtos, mas tem os anteriores
-			cadastraProduto.executa(produto, dados);
+			//executa o cadastro dos produtos, pega os anteriores pelo dados
+			dados = cadastraProduto.executa(produto, dados);
 			break;
 		case 4:
 			//cadastrar cliente
-			clienteView = new ClienteView();
 			cliente = clienteView.leituraCliente();
-			cadastraCliente.executa(cliente,dados);
+			dados = cadastraCliente.executa(cliente,dados);
 			break;
 		case 5: 
 			//sair

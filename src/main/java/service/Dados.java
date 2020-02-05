@@ -18,7 +18,6 @@ public class Dados {
 		clienteDAO.carrega();
 		//Set<Cliente> clientes = clienteDAO.getClientes();
 		//produtos.forEach(produto->{System.out.println(produto);});
-		
 	}
 	
 	public ProdutoDao getProdutoDao() {
@@ -27,6 +26,12 @@ public class Dados {
 	
 	public ClienteDao getClienteDao() {
 		return this.clienteDAO;
+	}
+	public void setClienteDao(ClienteDao cliente) {
+		this.clienteDAO = cliente;
+	}
+	public void setProdutoDao(ProdutoDao produto) {
+		this.produtoDAO = produto;
 	}
 	
 }

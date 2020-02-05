@@ -6,7 +6,6 @@ import service.CadastraProduto;
 import view.Menu;
 
 public class App {
-	//private static Scanner sc = new Scanner(System.in);
 	
 	private static Menu menu = new Menu();
 	
